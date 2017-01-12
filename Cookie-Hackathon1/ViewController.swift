@@ -21,13 +21,19 @@ import CoreMotion
 
 class ViewController: UIViewController {
     @IBOutlet weak var startStopButton: UIButton!
+    
     var startTime = Date()
     var time: Double = 0.0
     var acceleration: Double = 0.0
+    var velocity: Double = 0.0
+    var distance: Double = 0.0
     
     var motionManager: CMMotionManager?
     
     @IBAction func startButtonPressedDown(_ sender: UIButton) {
+        sender.backgroundColor = UIColor.red
+        startStopButton.setTitle("Stop", for: .normal)
+        resetVariables()
         startTime = Date()
         print("startime: \(startTime)")
         motionManager = CMMotionManager()
@@ -46,6 +52,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func stopButtonPressedUp(_ sender: UIButton) {
+        startStopButton.setTitle("Start", for: .normal)
         motionManager?.stopDeviceMotionUpdates()
         time = Double(Date().timeIntervalSince(startTime))
         print("time difference: \(time)")
@@ -54,6 +61,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func resetVariables() {
+        velocity = 0.0
+        distance = 0.0
+        acceleration = 0.0
+        time = 0.0
     }
     
     func degrees(radians: Double) -> Double {
@@ -67,14 +81,11 @@ class ViewController: UIViewController {
             acceleration *= -1
         }
         print("accel2 \(acceleration)")
-        let velocity = Double(acceleration) * time
+        velocity = Double(acceleration) * time
         print("velocity \(velocity)")
         let rawDistance = velocity * time * 9.8 * 39.37 // 1.10159 m/s2 43.369 in/s2
-        let distance = rawDistance.squareRoot()
+        distance = rawDistance.squareRoot()
         print("dist \(distance) inches")
-        let test1 = 9.0
-        let test = test1.squareRoot()
-        print("squre root test \(test)")
     }
     
     override func didReceiveMemoryWarning() {
