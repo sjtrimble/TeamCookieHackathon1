@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         distanceResultLabel.isHidden = true
         resetVariables()
         startTime = Date()
-        print("startime: \(startTime)")
+//        print("startime: \(startTime)")
         motionManager = CMMotionManager()
         if let manager = motionManager {
             let myQ = OperationQueue()
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         distanceResultLabel.isHidden = false
         motionManager?.stopDeviceMotionUpdates()
         time = Double(Date().timeIntervalSince(startTime))
-        print("time difference: \(time)")
+//        print("time difference: \(time)")
         calculateDistance()
         distanceResultLabel.text = String(Double(round(distance * 100)/100)) + " in"
         distanceResultLabel.isHidden = false
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         appNameLabel.setTitle("Measure Ninja", for: .normal)
-        appNameLabel.backgroundColor = UIColor.black
+        appNameLabel.backgroundColor = UIColor.white
         distanceResultLabel.isHidden = true
     }
     

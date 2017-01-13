@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,16 +24,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ntT-7x-EAj">
-                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <rect key="frame" x="-4" y="40" width="383" height="635"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CK4-aD-RTc">
                                         <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-Small-62" translatesAutoresizingMaskIntoConstraints="NO" id="KpC-9d-ney">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="KpC-9d-ney" secondAttribute="height" multiplier="4:4" id="OpH-Uc-Dqw"/>
+                                                </constraints>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zl-Bc-bia">
-                                                <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
+                                                <rect key="frame" x="80" y="0.0" width="303" height="80"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                 <state key="normal" title="Measure Ninja">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="resestHomePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Qx-cx-Ox3"/>
@@ -53,7 +60,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="255" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9u-4v-Qgl">
-                                        <rect key="frame" x="0.0" y="280" width="383" height="387"/>
+                                        <rect key="frame" x="0.0" y="280" width="383" height="355"/>
                                         <color key="backgroundColor" red="0.20805916911547095" green="0.66083679135014495" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Press to Start">
@@ -79,7 +86,8 @@
                             <constraint firstItem="ntT-7x-EAj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hc3-3d-iYU"/>
                             <constraint firstItem="ntT-7x-EAj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Hqq-BP-RPY"/>
                             <constraint firstItem="ntT-7x-EAj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aIZ-ea-EWN"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ntT-7x-EAj" secondAttribute="bottom" id="nvL-dy-91O"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ntT-7x-EAj" secondAttribute="bottom" constant="-8" id="nvL-dy-91O"/>
+                            <constraint firstItem="ntT-7x-EAj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="zHi-DH-O6K"/>
                         </constraints>
                     </view>
                     <connections>
@@ -93,4 +101,7 @@
             <point key="canvasLocation" x="104.8" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon-Small-62" width="90" height="90"/>
+    </resources>
 </document>
