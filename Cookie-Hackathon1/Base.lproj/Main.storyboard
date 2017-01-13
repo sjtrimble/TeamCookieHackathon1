@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="njnaruto.ttf">
+            <string>Ninja-Naruto</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -19,16 +24,16 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="255" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="ntT-7x-EAj" userLabel="Container">
-                                <rect key="frame" x="-4" y="20" width="328" height="556"/>
+                                <rect key="frame" x="-4" y="20" width="383" height="647"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CK4-aD-RTc" userLabel="Header">
-                                        <rect key="frame" x="0.0" y="0.0" width="328" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="383" height="80"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-Small-62" translatesAutoresizingMaskIntoConstraints="NO" id="KpC-9d-ney">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ninja-blackbackground-160" translatesAutoresizingMaskIntoConstraints="NO" id="KpC-9d-ney">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="5Se-CK-nZS"/>
@@ -36,10 +41,10 @@
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zl-Bc-bia">
-                                                <rect key="frame" x="80" y="0.0" width="248" height="80"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <rect key="frame" x="80" y="0.0" width="303" height="80"/>
+                                                <fontDescription key="fontDescription" name="Ninja-Naruto" family="Ninja Naruto" pointSize="26"/>
                                                 <state key="normal" title="Measure Ninja">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="resestHomePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Qx-cx-Ox3"/>
@@ -50,10 +55,11 @@
                                             <constraint firstAttribute="height" constant="80" id="Cp3-3P-F0N"/>
                                             <constraint firstItem="KpC-9d-ney" firstAttribute="top" secondItem="CK4-aD-RTc" secondAttribute="top" id="UOR-7J-sn6"/>
                                             <constraint firstItem="KpC-9d-ney" firstAttribute="leading" secondItem="CK4-aD-RTc" secondAttribute="leading" id="a4c-nZ-WIV"/>
+                                            <constraint firstItem="5zl-Bc-bia" firstAttribute="centerY" secondItem="KpC-9d-ney" secondAttribute="centerY" id="fTb-L4-QrZ"/>
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRq-AH-V7E">
-                                        <rect key="frame" x="0.0" y="80" width="328" height="200"/>
+                                        <rect key="frame" x="0.0" y="80" width="383" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="rZ7-TP-7Nh"/>
                                         </constraints>
@@ -62,8 +68,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="255" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9u-4v-Qgl">
-                                        <rect key="frame" x="0.0" y="280" width="328" height="276"/>
-                                        <color key="backgroundColor" red="0.20805916911547095" green="0.66083679135014495" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="280" width="383" height="367"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Press to Start">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -75,7 +81,6 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="F9u-4v-Qgl" secondAttribute="bottom" id="COE-2q-N9b"/>
                                     <constraint firstItem="CK4-aD-RTc" firstAttribute="centerX" secondItem="ntT-7x-EAj" secondAttribute="centerX" id="IaZ-nG-XeL"/>
                                     <constraint firstItem="CK4-aD-RTc" firstAttribute="leading" secondItem="ntT-7x-EAj" secondAttribute="leading" id="UfY-JH-EKX"/>
                                     <constraint firstItem="cRq-AH-V7E" firstAttribute="centerX" secondItem="ntT-7x-EAj" secondAttribute="centerX" id="tUX-fQ-iec"/>
@@ -84,11 +89,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ntT-7x-EAj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0ek-1i-CRm"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ntT-7x-EAj" secondAttribute="bottom" id="A9z-9I-cbG"/>
                             <constraint firstItem="ntT-7x-EAj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hc3-3d-iYU"/>
                             <constraint firstItem="ntT-7x-EAj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Hqq-BP-RPY"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ntT-7x-EAj" secondAttribute="bottom" constant="-8" id="TVa-Fq-LOg"/>
-                            <constraint firstItem="ntT-7x-EAj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="aIZ-ea-EWN"/>
-                            <constraint firstItem="ntT-7x-EAj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="sHq-SH-iIE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -103,6 +107,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Icon-Small-62" width="90" height="90"/>
+        <image name="ninja-blackbackground-160" width="80" height="80"/>
     </resources>
 </document>

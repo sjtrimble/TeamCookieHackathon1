@@ -21,7 +21,9 @@ class ViewController: UIViewController {
     var velocity: Double = 0.0
     var distance: Double = 0.0
     var numberOfReadings: Double = 0.0
-    let myColor = UIColor (red:53/255.0, green:169/255.0, blue:255/255.0, alpha:1.0)
+//    let myBlue = UIColor (red:53/255.0, green:169/255.0, blue:255/255.0, alpha:1.0)
+    let myRed = UIColor (red:208/255.0, green:2/255.0, blue:27/255.0, alpha:1.0)
+
     
     @IBOutlet weak var appNameLabel: UIButton!
     
@@ -33,7 +35,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startButtonPressedDown(_ sender: UIButton) {
-        sender.backgroundColor = UIColor.red
+        sender.backgroundColor = myRed
         startStopButton.setTitle("Release to Stop", for: .normal)
         distanceResultLabel.isHidden = true
         resetVariables()
@@ -69,8 +71,8 @@ class ViewController: UIViewController {
     
     @IBAction func stopButtonPressedUp(_ sender: UIButton) {
         startStopButton.setTitle("Press to Start", for: .normal)
-        sender.backgroundColor = myColor
-        distanceResultLabel.backgroundColor = myColor
+        sender.backgroundColor = UIColor.black
+        distanceResultLabel.backgroundColor = UIColor.black
         distanceResultLabel.isHidden = false
         motionManager?.stopDeviceMotionUpdates()
         time = Double(Date().timeIntervalSince(startTime))
@@ -87,7 +89,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         appNameLabel.setTitle("Measure Ninja", for: .normal)
-        appNameLabel.backgroundColor = UIColor.white
+        appNameLabel.backgroundColor = UIColor.black
         distanceResultLabel.isHidden = true
     }
     
