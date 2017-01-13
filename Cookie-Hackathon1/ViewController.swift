@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var numberOfReadings: Double = 0.0
 //    let myBlue = UIColor (red:53/255.0, green:169/255.0, blue:255/255.0, alpha:1.0)
     let myRed = UIColor (red:208/255.0, green:2/255.0, blue:27/255.0, alpha:1.0)
+    var badreadingcount: Double = 1.0 // TESTING
 
     
     @IBOutlet weak var appNameLabel: UIButton!
@@ -41,28 +42,33 @@ class ViewController: UIViewController {
         resetVariables()
         var firstReading: Double = 7777777.77
         var buttonStartTime = Date()
+        var thisVelocity: Double = 0.0
+        var thisAcceleration: Double = 0.0
 //        print("startime: \(startTime)")
         motionManager = CMMotionManager()
         if let manager = motionManager {
             let myQ = OperationQueue()
-            manager.deviceMotionUpdateInterval = 0.1
+            manager.deviceMotionUpdateInterval = 0.01
             manager.startDeviceMotionUpdates(to: myQ) {
                 (data:CMDeviceMotion?, error: Error?) in
                 if let myData = data {
-                    self.acceleration = myData.userAcceleration.x * 9.8 // converting to m/s2
-                    // zero measures after count is greater than 1
-                    if self.acceleration > 0.04 || self.numberOfReadings > 0 {
-                        firstReading = self.acceleration
-                        if self.acceleration < 0 {
-                            self.acceleration *= -1
-                        }
-                        if self.acceleration == Double(firstReading ){
+                    thisAcceleration = myData.userAcceleration.x * 9.8 // converting to m/s2
+                    if thisAcceleration > 0.004 || self.numberOfReadings > 0 {
+                        if self.numberOfReadings == 0 {
                             self.startTime = Date()
                         }
-                        print("acceleration-x", self.acceleration)
-                        self.velocity = (self.acceleration * 0.1) + self.velocity
+                        self.acceleration = thisAcceleration
                         self.numberOfReadings += 1.0
+                        print("number of readings as it happens \(self.numberOfReadings)")
+                        if self.acceleration < 0 {
+                            self.acceleration *= -1.0
+                        }
+                        print("acceleration-x", self.acceleration)
+                        thisVelocity = (self.acceleration * 0.01) + thisVelocity // (accel  * time) + vel 0 = vel 1
+                        self.velocity += thisVelocity
                         print("total velocity from readings\(self.velocity)")
+                    } else {
+                        self.badreadingcount += 1.0
                     }
                 }
             }
@@ -99,6 +105,7 @@ class ViewController: UIViewController {
         acceleration = 0.0
         time = 0.0
         startTime = Date()
+        numberOfReadings = 0.0
     }
     
     func degrees(radians: Double) -> Double {
@@ -106,16 +113,12 @@ class ViewController: UIViewController {
     }
     
     func calculateDistance() {
-//        print("accel \(acceleration)")
-//        print("time \(time)")
-//        print("accel2 \(acceleration)")
-        print("average velocity \(velocity)")
+        print("number of readings \(numberOfReadings)")
         velocity = velocity / numberOfReadings
-//        velocity = Double(acceleration) * time
-//        print("velocity \(velocity)")
+        print("converted velocity \(velocity)")
         let rawDistance = velocity * time * 39.37 // converting to in/s2
         distance = rawDistance.squareRoot()
-//        print("dist \(distance) inches")
+        print("calculated dist \(distance) inches")
     }
     
     override func didReceiveMemoryWarning() {
