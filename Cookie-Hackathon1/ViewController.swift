@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         motionManager = CMMotionManager()
         if let manager = motionManager {
             let myQ = OperationQueue()
-            manager.deviceMotionUpdateInterval = 1
+            manager.deviceMotionUpdateInterval = 0.5
             //            if didStart {
             manager.startDeviceMotionUpdates(to: myQ) {
                 (data:CMDeviceMotion?, error: Error?) in
@@ -100,7 +100,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
     
 }
 
